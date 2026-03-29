@@ -1,0 +1,186 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "raccolta rifiuti gonnosfanadiga",
+            "intents": [
+                {
+                    "name": "GetCollectionTodayIntent",
+                    "slots": [],
+                    "samples": [
+                        "cosa si ritira oggi",
+                        "oggi cosa devo esporre",
+                        "oggi cosa passa",
+                        "che raccolta c'è oggi",
+                        "cosa raccolgono oggi"
+                    ]
+                },
+                {
+                    "name": "GetCollectionTomorrowIntent",
+                    "slots": [],
+                    "samples": [
+                        "cosa si ritira domani",
+                        "domani cosa devo esporre",
+                        "domani cosa passa",
+                        "che raccolta c'è domani",
+                        "cosa raccolgono domani"
+                    ]
+                },
+                {
+                    "name": "GetCollectionByDayIntent",
+                    "slots": [
+                        {
+                            "name": "day",
+                            "type": "AMAZON.DayOfWeek"
+                        }
+                    ],
+                    "samples": [
+                        "cosa si ritira {day}",
+                        "che raccolta c'è {day}",
+                        "che rifiuto si ritira {day}",
+                        "cosa devo esporre {day}",
+                        "{day} cosa si ritira",
+                        "{day} che raccolta c'è",
+                        "{day} cosa raccolgono"
+                    ]
+                },
+                {
+                    "name": "GetNextCollectionIntent",
+                    "slots": [
+                        {
+                            "name": "material",
+                            "type": "MATERIAL_TYPE"
+                        }
+                    ],
+                    "samples": [
+                        "quando passa {material}",
+                        "quando ritirano {material}",
+                        "qual è il prossimo giorno per {material}",
+                        "quando si ritira {material}",
+                        "quando tocca {material}"
+                    ]
+                },
+                {
+                    "name": "GetEveningReminderIntent",
+                    "slots": [],
+                    "samples": [
+                        "cosa devo esporre stasera",
+                        "stasera cosa devo esporre",
+                        "che rifiuto devo mettere fuori stasera",
+                        "cosa metto fuori stasera",
+                        "stasera cosa metto fuori"
+                    ]
+                },
+                {
+                    "name": "GetEcocentroHoursIntent",
+                    "slots": [],
+                    "samples": [
+                        "orari ecocentro",
+                        "quando è aperto l ecocentro",
+                        "a che ora apre l ecocentro",
+                        "dimmi gli orari dell ecocentro",
+                        "quando posso andare all ecocentro"
+                    ]
+                },
+                {
+                    "name": "GetBulkyInfoIntent",
+                    "slots": [],
+                    "samples": [
+                        "come funziona il ritiro ingombranti",
+                        "numero per il ritiro ingombranti",
+                        "prenotazione ingombranti",
+                        "informazioni sugli ingombranti",
+                        "come prenotare gli ingombranti"
+                    ]
+                },
+                {
+                    "name": "GetDiapersInfoIntent",
+                    "slots": [],
+                    "samples": [
+                        "quando ritirano i pannolini",
+                        "informazioni su pannolini e pannoloni",
+                        "giorni pannolini",
+                        "giorni pannoloni",
+                        "raccolta pannolini"
+                    ]
+                },
+                {
+                    "name": "GetGreenWasteInfoIntent",
+                    "slots": [],
+                    "samples": [
+                        "quando ritirano gli sfalci verdi",
+                        "informazioni sugli sfalci verdi",
+                        "giorno sfalci verdi",
+                        "quando passano le potature",
+                        "raccolta verde"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "MATERIAL_TYPE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "umido",
+                                "synonyms": [
+                                    "organico"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "carta e cartone",
+                                "synonyms": [
+                                    "carta",
+                                    "cartone"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plastica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "secco",
+                                "synonyms": [
+                                    "rsu",
+                                    "indifferenziato",
+                                    "secco rsu"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vetro e lattine",
+                                "synonyms": [
+                                    "vetro",
+                                    "metalli",
+                                    "vetro e metalli",
+                                    "lattine"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
