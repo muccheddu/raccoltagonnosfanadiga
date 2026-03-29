@@ -114,10 +114,13 @@ function toIsoDate(date) {
 }
 
 function getDateForOffset(offsetDays = 0) {
-    const date = new Date();
-    date.setHours(12, 0, 0, 0);
-    date.setDate(date.getDate() + offsetDays);
-    return date;
+    const now = new Date();
+    // Derive the current calendar date in Italy's timezone (Europe/Rome),
+    // so the skill returns the correct day even between midnight and ~2am.
+    const italyStr = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Rome' }).format(now);
+    const [year, month, day] = italyStr.split('-').map(Number);
+    // Build a local date at noon to keep getFullYear/getMonth/getDate stable.
+    return new Date(year, month - 1, day + offsetDays, 12, 0, 0, 0);
 }
 
 function getDayKeyFromDate(date) {
@@ -218,20 +221,14 @@ function alexaDayToInternal(dayValue) {
     return map[v] || null;
 }
 
-function getNextCollectionForMaterial(material) {
-    const normalized = normalizeMaterial(material);
-
-    if (!normalized) {
-        return null;
-    }
-
+function getNextCollectionForMaterial(normalizedMaterial) {
     for (let offset = 0; offset < 30; offset++) {
         const date = getDateForOffset(offset);
         const materials = getCollectionForDate(date);
 
-        if (materials.includes(normalized)) {
+        if (materials.includes(normalizedMaterial)) {
             return {
-                material: normalized,
+                material: normalizedMaterial,
                 date,
                 offset
             };
