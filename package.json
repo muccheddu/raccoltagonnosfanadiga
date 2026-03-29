@@ -1,0 +1,9 @@
+{
+  "name": "raccolta-gonnosfanadiga",
+  "version": "1.0.0",
+  "description": "Alexa skill per la raccolta differenziata di Gonnosfanadiga",
+  "main": "index.js",
+  "dependencies": {
+    "ask-sdk-core": "^2.14.0"
+  }
+}
